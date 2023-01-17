@@ -4,16 +4,22 @@ const catchAsyncError = require("../middlewares/catchAsyncErrors");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
+  const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    folder: "avatar",
+    width: 150,
+    crop: "scale",
+  });
   const { name, email, password } = req.body;
   const user = await User.create({
     name,
     email,
     password,
     avatar: {
-      public_id: "bing",
-      url: "https://th.bing.com/th/id/OIP.FkFppcRo-VYJhv0UEXyiRgHaFw?pid=ImgDet&rs=1",
+      public_id: result.public_id,
+      url: result.secure_url,
     },
   });
 
@@ -48,7 +54,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("User not found with this email", 404));
   }
 
-  const resetToken = user.getResetPasswordToken();
+  const resetToken = await user.getResetPasswordToken();
 
   await user.save({ validateBeforeSave: false });
 
