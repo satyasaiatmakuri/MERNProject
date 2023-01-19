@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import MetaData from "../layouts/MetaData";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../layouts/Loader";
 import { useAlert } from "react-alert";
-
 import { login, clearErrors } from "../../actions/userActions";
 
-const Login = () => {
+const Login = ({ location }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const alert = useAlert();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const { isAuthenticated, error, loading, user } = useSelector(
     (state) => state.auth
   );
 
+  const redirect = searchParams.get("redirect")
+    ? `/${searchParams.get("redirect")}`
+    : "/";
+
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/");
+      navigate(redirect);
     }
     if (error) {
       alert.error(error);
