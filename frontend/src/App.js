@@ -16,15 +16,31 @@ import NewPassword from "./components/user/NewPassword";
 
 import { loadUser } from "./actions/userActions";
 import store from "./store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cart from "./components/carts/Cart";
 import Shipping from "./components/carts/Shipping";
 import ConfirmOrders from "./components/carts/ConfirmOrders";
+import axios from "axios";
+
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import Payment from "./components/carts/Payment";
+import OrderSuccess from "./components/carts/OrderSuccess";
 
 function App() {
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
   useEffect(() => {
     store.dispatch(loadUser());
+
+    async function getStripeApiKey() {
+      const { data } = await axios.get("/api/v1/stripeapi");
+      setStripeApiKey(data.stripeApiKey);
+    }
+    getStripeApiKey();
   }, []);
+
+  console.log("stripe", stripeApiKey);
 
   return (
     <Router>
@@ -38,6 +54,14 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} exact />
             <Route path="/search/:keyword" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/success"
+              element={
+                <ProtectedRoute>
+                  <OrderSuccess />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/me"
               element={
@@ -78,6 +102,17 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            {stripeApiKey && (
+              <Route
+                path="/payment"
+                element={
+                  <Elements stripe={loadStripe(stripeApiKey)}>
+                    <Payment />
+                  </Elements>
+                }
+              />
+            )}
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/password/reset/:token" element={<NewPassword />} />
           </Routes>

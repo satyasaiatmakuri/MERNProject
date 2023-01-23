@@ -30,12 +30,12 @@ const ConfirmOrders = () => {
     };
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
-    navigate("/");
+    navigate("/payment");
   };
   return (
     <>
       <MetaData title={"Confirm Order"} />
-      <CheckOutSteps confirmOrder />
+      <CheckOutSteps shipping confirmOrder />
 
       <div className="row d-flex justify-content-between">
         <div className="col-12 col-lg-8 mt-5 order-confirm">
@@ -75,7 +75,7 @@ const ConfirmOrders = () => {
                   <div className="col-4 col-lg-4 mt-4 mt-lg-0">
                     <p>
                       {item.quantity} x ${item.price} ={" "}
-                      <b>${item.quantity * item.price}</b>
+                      <b>${(item.quantity * item.price).toFixed(2)}</b>
                     </p>
                   </div>
                 </div>

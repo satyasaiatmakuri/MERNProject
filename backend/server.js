@@ -4,7 +4,6 @@ const connectDatabase = require("./config/database");
 const dotenv = require("dotenv");
 const cloudinary = require("cloudinary");
 
-
 process.on("uncaughtException", (err) => {
   console.log(`ERROR: ${err.message}`);
   console.log(`Shutting down server due to uncaught exception`);
