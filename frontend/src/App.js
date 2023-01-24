@@ -65,9 +65,9 @@ function App() {
             <Route
               path="/me"
               element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
+                // <ProtectedRoute>
+                <Profile />
+                // </ProtectedRoute>
               }
             />
             <Route
