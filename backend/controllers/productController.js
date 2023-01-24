@@ -12,6 +12,15 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+  const products = await Product.find();
+
+  res.status(200).json({
+    success: true,
+    products,
+  });
+});
+
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
   const resPerPage = 4;
 

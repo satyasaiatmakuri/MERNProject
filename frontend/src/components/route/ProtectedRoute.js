@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { loadUser } from "../../actions/userActions";
 import Loader from "../layouts/Loader";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ isAdmin, children }) => {
   const {
     isAuthenticated = false,
     loading = true,
@@ -22,7 +22,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (!loading && isAuthenticated) {
     // isAdmin === true && (final section)
-    if (user.role !== "admin") {
+    if (isAdmin === true && user.role !== "admin") {
       return <Navigate to="/" />;
     }
     return children;

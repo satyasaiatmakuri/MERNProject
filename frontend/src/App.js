@@ -26,6 +26,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Payment from "./components/carts/Payment";
 import OrderSuccess from "./components/carts/OrderSuccess";
+import Dashboard from "./components/admin/Dashboard";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -99,6 +100,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <ConfirmOrders />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute isAdmin={true}>
+                  <Dashboard />
                 </ProtectedRoute>
               }
             />
