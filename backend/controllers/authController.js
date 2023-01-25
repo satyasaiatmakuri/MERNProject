@@ -68,7 +68,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
   try {
     await sendEmail({
       email: user.email,
-      subject: `MERN Recovery Mail`,
+      subject: `MERNify Recovery Mail`,
       message,
     });
 
