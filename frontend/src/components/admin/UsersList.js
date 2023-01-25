@@ -34,7 +34,7 @@ const UsersList = () => {
       dispatch({ type: DELETE_USER_RESET });
       navigate("/admin/users");
     }
-  }, [dispatch, alert, error, deleteError, isDeleted]);
+  }, [dispatch, alert, error, deleteError, isDeleted, navigate]);
 
   const setUsers = () => {
     const data = {
@@ -103,7 +103,7 @@ const UsersList = () => {
 
   return (
     <>
-      <MetaData title={"All USers"} />
+      <MetaData title={"All Users"} />
 
       <div className="row">
         <div className="col-12 col-md-2">
@@ -111,7 +111,7 @@ const UsersList = () => {
         </div>
         <div className="col-12 col-md-10">
           <>
-            <h1 className="my-5">All USers</h1>
+            <h1 className="m-4">All Users</h1>
             {loading ? (
               <Loader />
             ) : (

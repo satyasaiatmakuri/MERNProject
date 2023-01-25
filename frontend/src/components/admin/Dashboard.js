@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import MetaData from "../layouts/MetaData";
 import Sidebar from "./Sidebar";

@@ -28,10 +28,9 @@ const Shipping = () => {
   return (
     <>
       <MetaData title={"Shipping Info"} />
+      <CheckOutSteps shipping />
       <div className="container container-fluid">
-        <CheckOutSteps shipping />
-
-        <div className="row wrapper">
+        <div className="row wrapper mb-5">
           <div className="col-10 col-lg-5">
             <form className="shadow-lg" onSubmit={submitHandler}>
               <h1 className="mb-4">Shipping Info</h1>

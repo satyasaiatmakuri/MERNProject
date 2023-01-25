@@ -35,11 +35,10 @@ const ConfirmOrders = () => {
   return (
     <>
       <MetaData title={"Confirm Order"} />
+      <CheckOutSteps shipping confirmOrder />
       <div className="container container-fluid">
-        <CheckOutSteps shipping confirmOrder />
-
         <div className="row d-flex justify-content-between">
-          <div className="col-12 col-lg-8 mt-5 order-confirm">
+          <div className="col-12 col-lg-8 mt-3 order-confirm">
             <h4 className="mb-3">Shipping Info</h4>
             <p>
               <b>Name:</b> {user && user.name}
@@ -69,11 +68,11 @@ const ConfirmOrders = () => {
                       />
                     </div>
 
-                    <div className="col-5 col-lg-6">
+                    <div className="col-8 col-lg-6">
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
                     </div>
 
-                    <div className="col-4 col-lg-4 mt-4 mt-lg-0">
+                    <div className="col-12 col-lg-4 mt-4 mt-lg-0">
                       <p>
                         {item.quantity} x ${item.price} ={" "}
                         <b>${(item.quantity * item.price).toFixed(2)}</b>

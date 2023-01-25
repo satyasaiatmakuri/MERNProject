@@ -14,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  const { isAuthenticated, error, loading, user } = useSelector(
+  const { isAuthenticated, error, loading } = useSelector(
     (state) => state.auth
   );
 
@@ -30,7 +30,7 @@ const Login = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, alert, isAuthenticated, error]);
+  }, [dispatch, alert, isAuthenticated, error, navigate, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ const Login = () => {
             <div className="row wrapper mt-5">
               <div className="col-10 col-lg-5">
                 <form className="shadow-lg" onSubmit={submitHandler}>
-                  <h1 className="mb-3">Login</h1>
+                  <h1 className="mb-4">Login</h1>
                   <div className="form-group">
                     <label htmlFor="email_field">Email</label>
                     <input
@@ -70,19 +70,19 @@ const Login = () => {
                     />
                   </div>
 
-                  <Link to="/password/forgot" className="float-right mb-4">
+                  <Link to="/password/forgot" className="float-right">
                     Forgot Password?
                   </Link>
 
                   <button
                     id="login_button"
                     type="submit"
-                    className="btn btn-block py-3"
+                    className="btn btn-block py-3 my-4"
                   >
                     LOGIN
                   </button>
 
-                  <Link to="/register" className="float-right mt-3">
+                  <Link to="/register" className="float-right">
                     New User?
                   </Link>
                 </form>

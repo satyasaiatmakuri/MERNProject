@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <>
       <nav className="navbar row">
-        <div className="col-12 col-md-3">
+        <div className="col-12 col-md-3 text-center">
           <div className="navbar-brand">
             <Link to={"/"}>
               <img src={"/images/shopit_logo.png"} alt="MERN" />
@@ -27,11 +27,11 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="col-12 col-md-6 mt-2 mt-md-0">
+        <div className="col-12 col-md-5 px-4 mt-2 mt-md-0">
           <Search />
         </div>
 
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+        <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <span id="cart" className="me-2">
               Cart
@@ -42,7 +42,7 @@ const Header = () => {
           </Link>
 
           {user ? (
-            <div className="ml-4 dropdown d-inline">
+            <div className="mx-4 dropdown d-inline">
               <Link
                 to="#!"
                 className="btn dropdown-toggle text-white mr-4"

@@ -51,7 +51,7 @@ const OrderDetail = () => {
         <>
           <div className="container container-fluid">
             <div className="row d-flex justify-content-between">
-              <div className="col-12 col-lg-8 mt-5 order-details">
+              <div className="col-12 col-lg-8 order-details">
                 <h1 className="my-5">Order # {order._id}</h1>
 
                 <h4 className="mb-4">Shipping Info</h4>
@@ -103,7 +103,7 @@ const OrderDetail = () => {
                           />
                         </div>
 
-                        <div className="col-5 col-lg-5">
+                        <div className="col-8 col-lg-5">
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>

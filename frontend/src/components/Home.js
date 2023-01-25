@@ -80,7 +80,7 @@ const Home = () => {
           <MetaData title="Home Page" />
           <div className="container container-fluid">
             <h1 id="products_heading">Latest Products</h1>
-            <section id="products" className="container mt-5">
+            <section id="products" className="container mt-3">
               <div className="row">
                 {keyword ? (
                   <>
@@ -159,7 +159,7 @@ const Home = () => {
                             <Product
                               product={product}
                               key={product._id}
-                              col={6}
+                              col={4}
                             />
                           ))}
                       </div>

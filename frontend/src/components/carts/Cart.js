@@ -50,7 +50,7 @@ const Cart = () => {
                   <div className="row">
                     {cartItems.map((item) => (
                       <>
-                        <div className="col-4 col-lg-3" key={item.product}>
+                        <div className="col-6 col-lg-3" key={item.product}>
                           <img
                             src={item.image}
                             alt="Laptop"
@@ -59,17 +59,17 @@ const Cart = () => {
                           />
                         </div>
 
-                        <div className="col-5 col-lg-3">
+                        <div className="col-6 col-lg-3">
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
                         </div>
 
-                        <div className="col-4 col-lg-2 mt-4 mt-lg-0">
+                        <div className="col-4 col-lg-2">
                           <p id="card_item_price">{item.price}</p>
                         </div>
 
-                        <div className="col-4 col-lg-3 mt-4 mt-lg-0">
+                        <div className="col-6 col-lg-3">
                           <div className="stockCounter d-inline">
                             <span
                               className="btn btn-danger minus"
@@ -101,7 +101,7 @@ const Cart = () => {
                           </div>
                         </div>
 
-                        <div className="col-4 col-lg-1 mt-4 mt-lg-0">
+                        <div className="col-2 col-lg-1">
                           <AiTwotoneDelete
                             className="btn btn-danger"
                             size={40}
@@ -110,16 +110,16 @@ const Cart = () => {
                             }
                           />
                         </div>
-                        <hr />
-
+                        <div className="col-12 py-2">
+                          <hr />
+                        </div>
                       </>
                     ))}
                   </div>
                 </div>
-                {/* <hr /> */}
               </div>
 
-              <div className="col-12 col-lg-3 my-4">
+              <div className="col-12 col-lg-3 my-2">
                 <div id="order_summary">
                   <h4>Order Summary</h4>
                   <hr />

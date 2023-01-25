@@ -33,7 +33,7 @@ const Register = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, alert, isAuthenticated, error]);
+  }, [dispatch, alert, isAuthenticated, error, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ const Register = () => {
     <>
       <MetaData title={"Register User"} />
       <div className="container container-fluid">
-        <div className="row wrapper mt-5">
+        <div className="row wrapper my-5">
           <div className="col-10 col-lg-5">
             <form
               className="shadow-lg"

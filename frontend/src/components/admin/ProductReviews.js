@@ -10,7 +10,6 @@ import {
   clearErrors,
   deleteProductReview,
 } from "../../actions/productActions";
-// import {  } from "../../constants/userConstants";
 import { DELETE_REVIEW_RESET } from "../../constants/productConstant";
 
 const ProductReviews = () => {
@@ -20,9 +19,7 @@ const ProductReviews = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, error, reviews } = useSelector(
-    (state) => state.productReviews
-  );
+  const { error, reviews } = useSelector((state) => state.productReviews);
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.review
   );
@@ -47,7 +44,7 @@ const ProductReviews = () => {
       dispatch({ type: DELETE_REVIEW_RESET });
       navigate("/admin/reviews");
     }
-  }, [dispatch, alert, error, productId, deleteError, isDeleted]);
+  }, [dispatch, alert, error, productId, deleteError, isDeleted, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();

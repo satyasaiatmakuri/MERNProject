@@ -17,7 +17,7 @@ const OrdersList = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, orders, totalAmount } = useSelector(
+  const { loading, error, orders } = useSelector(
     (state) => state.allOrders
   );
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
@@ -40,7 +40,7 @@ const OrdersList = () => {
       dispatch({ type: DELETE_ORDER_RESET });
       navigate("/admin/orders");
     }
-  }, [dispatch, alert, error, isDeleted, deleteError]);
+  }, [dispatch, alert, error, isDeleted, deleteError, navigate]);
 
   const setOrders = () => {
     const data = {
@@ -122,7 +122,7 @@ const OrdersList = () => {
         </div>
         <div className="col-12 col-md-10">
           <>
-            <h1 className="my-5">All Orders</h1>
+            <h1 className="m-4">All Orders</h1>
             {loading ? (
               <Loader />
             ) : (

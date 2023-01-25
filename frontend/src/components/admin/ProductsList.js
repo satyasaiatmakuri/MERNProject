@@ -115,7 +115,7 @@ const ProductsList = () => {
         </div>
         <div className="col-12 col-md-10">
           <>
-            <h1 className="my-5">All Products</h1>
+            <h1 className="m-4">All Products</h1>
             {loading ? (
               <Loader />
             ) : (
