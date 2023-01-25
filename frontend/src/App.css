@@ -71,6 +71,19 @@ nav {
 }
 
 /* Home page */
+
+.logoBrand {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-decoration: none;
+  color: white;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.logoBrand:hover {
+  color: #fa9c23;
+}
+
 #products_heading {
   margin-top: 1.8rem;
 }

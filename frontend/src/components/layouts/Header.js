@@ -22,7 +22,8 @@ const Header = () => {
         <div className="col-12 col-md-3 text-center">
           <div className="navbar-brand">
             <Link to={"/"}>
-              <img src={"/images/shopit_logo.png"} alt="MERN" />
+              {/* <img src={"/images/shopit_logo.png"} alt="MERN" /> */}
+              <div className="logoBrand">MERNify</div>
             </Link>
           </div>
         </div>
