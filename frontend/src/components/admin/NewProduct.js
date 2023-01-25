@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MetaData from "../layouts/MetaData";
-import Loader from "../layouts/Loader";
 import { useAlert } from "react-alert";
 import { newProduct, clearErrors } from "../../actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,7 +48,7 @@ const NewProduct = () => {
       dispatch({ type: NEW_PRODUCT_RESET });
       navigate("/admin/products");
     }
-  }, [dispatch, alert, error, success]);
+  }, [dispatch, alert, error, success, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();

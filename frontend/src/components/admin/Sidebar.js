@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <>
-      <div className="row">
+      <div className="row" style={{ height: "100%" }}>
         <div className="col-12">
           <div className="sidebar-wrapper">
             <nav id="sidebar">

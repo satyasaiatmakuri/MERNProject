@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MetaData from "../layouts/MetaData";
-import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../../actions/cartActions";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -34,12 +33,12 @@ const Cart = () => {
 
   return (
     <>
-      {cartItems.length === 0 ? (
-        <h2 className="mt-5">Your Cart is Empty</h2>
-      ) : (
-        <>
-          <MetaData title={"Your Cart"} />
-          <div className="container container-fluid">
+      <div className="container container-fluid">
+        {cartItems.length === 0 ? (
+          <h2 className="mt-5">Your Cart is Empty</h2>
+        ) : (
+          <>
+            <MetaData title={"Your Cart"} />
             <h2 className="mt-5">
               Your Cart: <b>{cartItems.length} items</b>
             </h2>
@@ -51,7 +50,6 @@ const Cart = () => {
                   <div className="row">
                     {cartItems.map((item) => (
                       <>
-                        <hr />
                         <div className="col-4 col-lg-3" key={item.product}>
                           <img
                             src={item.image}
@@ -112,11 +110,13 @@ const Cart = () => {
                             }
                           />
                         </div>
+                        <hr />
+
                       </>
                     ))}
                   </div>
                 </div>
-                <hr />
+                {/* <hr /> */}
               </div>
 
               <div className="col-12 col-lg-3 my-4">
@@ -157,9 +157,9 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </>
   );
 };

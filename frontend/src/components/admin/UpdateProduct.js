@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MetaData from "../layouts/MetaData";
-import Loader from "../layouts/Loader";
 import { useAlert } from "react-alert";
 import {
   updateProduct,
@@ -82,7 +81,7 @@ const UpdateProduct = () => {
       dispatch({ type: UPDATE_PRODUCT_RESET });
       navigate("/admin/products");
     }
-  }, [dispatch, alert, error, isUpdated, updateError, product, productId]);
+  }, [dispatch, alert, error, isUpdated, updateError, product, productId, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();

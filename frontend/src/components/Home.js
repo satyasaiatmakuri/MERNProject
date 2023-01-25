@@ -7,16 +7,14 @@ import { getProducts } from "../actions/productActions";
 import Product from "./product/Product";
 import Loader from "./layouts/Loader";
 import { useAlert } from "react-alert";
-import { useParams } from "react-router-dom";
-
-// const {createSliderWithTooltip} = Slider;
-// const Range = createSliderWithTooltip(Slider.Range);
+import { useNavigate, useParams } from "react-router-dom";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([1, 1000]);
   const [category, setCategory] = useState("");
   const [rating, setRating] = useState(0);
+  const navigate = useNavigate();
 
   const categories = [
     "Electronics",
@@ -52,7 +50,17 @@ const Home = () => {
       return alert.error(error);
     }
     dispatch(getProducts(keyword, currentPage, price, category, rating));
-  }, [dispatch, alert, error, keyword, currentPage, price, category, rating]);
+  }, [
+    dispatch,
+    alert,
+    error,
+    keyword,
+    currentPage,
+    price,
+    category,
+    rating,
+    navigate,
+  ]);
 
   const setCurrentPageNo = (pageNumber) => {
     setCurrentPage(pageNumber);
