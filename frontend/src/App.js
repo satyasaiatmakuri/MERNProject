@@ -38,6 +38,7 @@ import ProcessOrder from "./components/admin/ProcessOrder";
 import UsersList from "./components/admin/UsersList";
 import UpdateUser from "./components/admin/UpdateUser";
 import ProductReviews from "./components/admin/ProductReviews";
+import { BASEURL } from "./constants/api";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -47,7 +48,7 @@ function App() {
     store.dispatch(loadUser());
 
     async function getStripeApiKey() {
-      const { data } = await axios.get("/api/v1/stripeapi");
+      const { data } = await axios.get(`${BASEURL}/api/v1/stripeapi`);
       setStripeApiKey(data.stripeApiKey);
     }
     getStripeApiKey();

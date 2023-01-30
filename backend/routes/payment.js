@@ -8,6 +8,6 @@ const {
 } = require("../controllers/paymentController");
 
 router.route("/payment/process").post(isAuthenticatedUser, processPayment);
-router.route("/stripeapi").get(isAuthenticatedUser, sendStripeApi);
+router.route("/stripeapi").get(sendStripeApi);
 
 module.exports = router;

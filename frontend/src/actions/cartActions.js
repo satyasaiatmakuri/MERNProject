@@ -3,10 +3,11 @@ import {
   REMOVE_ITEM_FROM_CART,
   SAVE_SHIPPING_INFO,
 } from "../constants/cartConstants";
+import { BASEURL } from "../constants/api";
 import axios from "axios";
 
 export const addItemToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v1/product/${id}`);
+  const { data } = await axios.get(`${BASEURL}/api/v1/product/${id}`);
 
   dispatch({
     type: ADD_TO_CART,
