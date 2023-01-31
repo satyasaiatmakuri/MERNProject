@@ -181,7 +181,7 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
     httpOnly: true,
   });
 
-  res.status(200).json({
+  res.status(200).clearCookie().json({
     success: true,
     message: "Logged out",
   });
